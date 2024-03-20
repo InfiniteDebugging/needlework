@@ -1,0 +1,7 @@
+.venv
+.pytest
+/dist/
+.pants.d
+
+.pytest_cache
+__pycache__
