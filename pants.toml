@@ -1,0 +1,32 @@
+[GLOBAL]
+pants_version = "2.19.1"
+
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.typecheck.mypy",
+  "pants.backend.experimental.python.lint.ruff",
+]
+
+
+[python]
+interpreter_constraints = ["==3.12.*"]
+enable_resolves = true
+
+resolves = { python-default = "lockfiles/default.lock"}
+
+
+[mypy]
+install_from_resolve = "python-default"
+
+[pytest]
+install_from_resolve = "python-default"
+
+
+[source]
+root_patterns = [
+  "src",
+  "tests",
+]
+
+[test]
+report = true
