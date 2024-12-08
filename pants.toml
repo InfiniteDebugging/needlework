@@ -1,10 +1,12 @@
 [GLOBAL]
-pants_version = "2.19.1"
+pants_version = "2.23.0"
 
 backend_packages = [
   "pants.backend.python",
   "pants.backend.python.typecheck.mypy",
-  "pants.backend.experimental.python.lint.ruff",
+  "pants.backend.experimental.python.lint.ruff.check",
+  "pants.backend.experimental.python.lint.ruff.format",
+  "pants.backend.build_files.fmt.ruff",
 ]
 
 
@@ -14,13 +16,14 @@ enable_resolves = true
 
 resolves = { python-default = "lockfiles/default.lock"}
 
-
 [mypy]
 install_from_resolve = "python-default"
 
 [pytest]
 install_from_resolve = "python-default"
 
+[ruff]
+install_from_resolve = "python-default"
 
 [source]
 root_patterns = [
